@@ -13,8 +13,8 @@ const OverviewPage = () => {
       <Header title='Overview' />
 
       <main className='max-w-7xl mx-auto py-6 px-4 lg:px-8'>
-      {/* STATS */}
-      <motion.div
+        {/* STATS */}
+        <motion.div
           className='grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-8'
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -26,13 +26,13 @@ const OverviewPage = () => {
           <StatCard name='Conversion Rate' icon={BarChart2} value='12.5%' color='#10B981' />
         </motion.div>
 
-      {/* CHARTS */}
+        {/* CHARTS */}
 
-      {/* <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
           <SalesOverviewChart />
           <CategoryDistributionChart />
           <SalesChannelChart />
-        </div> */}
+        </div>
       </main>
     </div>
   )
