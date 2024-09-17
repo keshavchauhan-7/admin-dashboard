@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom"
 
+import Sidebar from "./components/Sidebar"
+
 import OverviewPage from "./pages/OverviewPage"
 import ProductsPage from "./pages/ProductsPage"
 import UsersPage from "./pages/UsersPage"
+import SalesPage from "./pages/SalesPage"
 
-import Sidebar from "./components/Sidebar"
 
 function App() {
   return (
