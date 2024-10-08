@@ -31,6 +31,7 @@ function App() {
         <Route path='/analytics' element={<AnalyticsPage />} />
         <Route path='/settings' element={<SettingsPage />} />
         {/* project completed */}
+        {/* project completed */}
       </Routes>
     </div>
   )
