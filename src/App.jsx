@@ -30,6 +30,7 @@ function App() {
         <Route path="/orders" element={<OrdersPage />} />
         <Route path='/analytics' element={<AnalyticsPage />} />
         <Route path='/settings' element={<SettingsPage />} />
+        {/* project completed */}
       </Routes>
     </div>
   )
