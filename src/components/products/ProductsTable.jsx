@@ -8,20 +8,37 @@ const ProductsTable = () => {
   const [filteredTeams, setFilteredTeams] = useState([]);
   const [teams, setTeams] = useState([]);
 
-  // Fetch data from the API
   useEffect(() => {
+    fetchTeams();
+  }, []);
+
+  const fetchTeams = () => {
     axios
       .get("http://localhost:5000/api/registrations")
       .then((response) => {
-        setTeams(response.data); // Directly use the response data
+        setTeams(response.data);
         setFilteredTeams(response.data);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
       });
-  }, []);
+  };
 
-  // Handle search filter
+  const handleCheckStatusUpdate = (teamId, currentCheckedInStatus) => {
+    const apiRoute = currentCheckedInStatus 
+      ? `http://localhost:5000/api/checkout/${teamId}`
+      : `http://localhost:5000/api/registrations/checkin/${teamId}`;
+
+    axios
+      .put(apiRoute)
+      .then(() => {
+        fetchTeams();
+      })
+      .catch((error) => {
+        console.error("Error updating check-in status: ", error);
+      });
+  };
+
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     setSearchTerm(term);
@@ -98,7 +115,12 @@ const ProductsTable = () => {
                 </td>
 
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
-                  {team.isCheckedin ? "Yes" : "No"}
+                  <input 
+                    type="checkbox" 
+                    checked={team.isCheckedin} 
+                    onChange={() => handleCheckStatusUpdate(team._id, team.isCheckedin)}
+                    className="form-checkbox h-5 w-5 text-blue-600"
+                  />
                 </td>
               </motion.tr>
             ))}
