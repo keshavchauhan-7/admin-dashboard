@@ -3,7 +3,7 @@ import { Search, ArrowUp, ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const ProductsTable = () => {
+const Checked = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredTeams, setFilteredTeams] = useState([]);
   const [teams, setTeams] = useState([]);
@@ -13,15 +13,16 @@ const ProductsTable = () => {
   });
 
   useEffect(() => {
-    fetchTeams();
+    fetchCheckedInTeams();
   }, []);
 
-  const fetchTeams = () => {
+  const fetchCheckedInTeams = () => {
     axios
-      .get("http://localhost:5000/api/registrations")
+      .get("http://localhost:5000/api/Checked-registrations")
       .then((response) => {
-        setTeams(response.data);
-        setFilteredTeams(response.data);
+        const checkedInTeams = response.data.checkedInTeams || [];
+        setTeams(checkedInTeams);
+        setFilteredTeams(checkedInTeams);
       })
       .catch((error) => {
         console.error("Error fetching data: ", error);
@@ -36,7 +37,7 @@ const ProductsTable = () => {
     axios
       .put(apiRoute)
       .then(() => {
-        fetchTeams();
+        fetchCheckedInTeams();
       })
       .catch((error) => {
         console.error("Error updating check-in status: ", error);
@@ -115,12 +116,12 @@ const ProductsTable = () => {
           className="text-xl font-semibold text-gray-100 cursor-pointer hover:text-gray-300"
           onClick={handleResetSort}
         >
-          Team List
+          Checked-In Teams
         </h2>
         <div className="relative">
           <input
             type="text"
-            placeholder="Search teams..."
+            placeholder="Search checked-in teams..."
             className="bg-gray-700 text-white placeholder-gray-400 rounded-lg pl-10 pr-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
             onChange={handleSearch}
             value={searchTerm}
@@ -225,4 +226,4 @@ const ProductsTable = () => {
   );
 };
 
-export default ProductsTable;
+export default Checked;

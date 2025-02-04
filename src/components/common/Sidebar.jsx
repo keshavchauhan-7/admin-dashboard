@@ -1,9 +1,10 @@
-import { BarChart2, DollarSign, Menu, Settings, ShoppingBag, ShoppingCart, TrendingUp, Users } from "lucide-react"
+import { Menu, Users } from "lucide-react"
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const SIDEBAR_ITEMS = [
+<<<<<<< HEAD
     {
         name: "Main Dashboard",
         icon: BarChart2,
@@ -16,6 +17,14 @@ const SIDEBAR_ITEMS = [
     { name: "Placement Drive", icon: ShoppingCart, color: "#F59E0B", href: "/orders" },
     { name: "Notification", icon: TrendingUp, color: "#3B82F6", href: "/analytics" },
     { name: "Profile", icon: Settings, color: "#6EE7B7", href: "/settings" },
+=======
+
+    { name: "All Teams", icon: Users, color: "#8B5CF6", href: "/" },
+    { name: "Checked-Teams", icon: Users, color: "#8B5CF6", href: "/checked-teams" },
+    { name: "Unchecked-Teams", icon: Users, color: "#8B5CF6", href: "/unchecked-teams" },
+
+   
+>>>>>>> 0bb1481435f3e05f21c4ccd62b3ef64d73faa33d
 ];
 
 const Sidebar = () => {
