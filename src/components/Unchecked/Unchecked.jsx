@@ -3,7 +3,7 @@ import { Search, ArrowUp, ArrowDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const ProductsTable = () => {
+const Unchecked = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredTeams, setFilteredTeams] = useState([]);
   const [teams, setTeams] = useState([]);
@@ -18,7 +18,7 @@ const ProductsTable = () => {
 
   const fetchTeams = () => {
     axios
-      .get("http://localhost:5000/api/registrations")
+      .get("http://localhost:5000/api/Unchecked-registrations")
       .then((response) => {
         setTeams(response.data);
         setFilteredTeams(response.data);
@@ -225,4 +225,4 @@ const ProductsTable = () => {
   );
 };
 
-export default ProductsTable;
+export default Unchecked;
