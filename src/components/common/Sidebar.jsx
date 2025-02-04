@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 const SIDEBAR_ITEMS = [
 
-    { name: "Teams", icon: Users, color: "#8B5CF6", href: "/products" },
+    { name: "All Teams", icon: Users, color: "#8B5CF6", href: "/" },
+    { name: "Checked-Teams", icon: Users, color: "#8B5CF6", href: "/checked-teams" },
+    { name: "Unchecked-Teams", icon: Users, color: "#8B5CF6", href: "/unchecked-teams" },
+
    
 ];
 

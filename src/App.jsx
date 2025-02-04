@@ -4,6 +4,8 @@ import Sidebar from "./components/common/Sidebar"
 
 
 import ProductsPage from "./pages/ProductsPage"
+import Checked from "./components/checked/Checked"
+import Unchecked from "./components/Unchecked/Unchecked"
 
 
 function App() {
@@ -19,7 +21,10 @@ function App() {
       <Sidebar />
       <Routes>
     
-        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/" element={<ProductsPage />} />
+        <Route path="/checked-teams" element={<Checked />} />
+        <Route path="/unchecked-teams" element={<Unchecked />} />
+
       
         {/* project completed */}
         {/* project completed */}
